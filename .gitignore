@@ -1,0 +1,8 @@
+CMakeCache.txt
+CMakeFiles/
+Knights
+Makefile
+cmake_install.cmake
+dump
+knights_test
+libKnights.so
