@@ -19,5 +19,5 @@ target_link_libraries(Knights
 
 add_executable(knights_test knights_test.cc)
 target_link_libraries(knights_test
-	${EXTREMECUNIT_LIBRARIES}
+	${EXTREMECUNIT_LIBRARIES} Knights
 )
