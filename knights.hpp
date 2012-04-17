@@ -23,30 +23,16 @@ class MoveEveryWherePlayer: public Player {
 	private:
 };
 
-#include <boost/foreach.hpp>
-#include <stdio.h>
 
-void drawBoard(Board & board) {
-	BOOST_FOREACH (std::vector<BoardEntry> &column,board._board) {
 
-		BOOST_FOREACH(BoardEntry & e, column) {
-			printf(" %d", e.steppedon);
-		}
-		printf("\n");
-	}
-	printf("=================\n");
+int steppedOn(const BoardEntry &e) {
+	return e.steppedon == 0 ? 0 :1 ;
 }
+
 /**
  * @return 1 if have touched every square, 0 otherwise
  */
 int haveTouchedEverySquare(Board & board) {
-	BOOST_FOREACH (std::vector<BoardEntry> &column,board._board) {
-
-		BOOST_FOREACH(BoardEntry & e, column) {
-			if (0 == e.steppedon) 
-				return 0;
-		}
-	}
-	return 1;
+	return board.testSquares(steppedOn);
 }
 #endif

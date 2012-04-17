@@ -2,25 +2,9 @@
 #define CHESS_GAME_HPP
 #include "board_game.hpp"
 
-class ChessPiece {
-	public: 
-		ChessPiece(Board &board, int x, int y): board_(board), position_(x,y) {
-			board_.setEntry(position_);
-		}
-		virtual void moveOptions(std::list<Position> & positionList) = 0;
-		virtual void moveTo(Position & position) {
-			position_ = position;
-			board_.setEntry(position);
-		}
-		const Position getPosition() const {
-			return position_;
-		}
-		
-		
-	protected: 
-		Board &board_;
-		Position position_;
-	private:
+class ChessPiece:public BoardGamePiece {
+	public:
+		ChessPiece(Board &board,int x, int y) :BoardGamePiece(board, x,y) {} ;
 };
 
 class Knight : public ChessPiece{
