@@ -1,6 +1,6 @@
 #include <vector>
 #include "knights.hpp"
-BoardEntry::BoardEntry():steppedon(0) {}
+BoardEntry::BoardEntry():steppedon(0),piece(NULL) {}
 
 Board::Board(int length, int width) {
 	_board.resize(length);

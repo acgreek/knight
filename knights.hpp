@@ -1,17 +1,6 @@
 #ifndef KNIGHTS_HPP
 #define KNIGHTS_HPP
 #include "chess_game.hpp"
-class Player {
-	public:
-		Player(Board &b) :board_(b) {}
-		void givePiece(ChessPiece *aPiece) {
-			p_ = aPiece;
-		}
-		virtual void takeTurn() = 0 ;
-	protected:
-		Board &board_;
-		ChessPiece *p_;
-};
 class MoveEveryWherePlayer: public Player {
 	public:
 		MoveEveryWherePlayer(Board & b) :Player(b) {}

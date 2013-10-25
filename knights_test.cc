@@ -74,8 +74,8 @@ TEST(KnightMoveTo) {
 TEST(haveTouchedEverySquareSmallest) {
 	Board board(1,1);
 	AssertEqInt(haveTouchedEverySquare(board), 0);
-	Position p(0,0);
-	board.setEntry(p);
+	Knight knight1(board, 0,0);
+	board.setPiece(&knight1);
 	AssertEqInt(haveTouchedEverySquare(board), 1);
 	return 0;
 }
@@ -83,10 +83,11 @@ TEST(haveTouchedEverySquareLarger) {
 	Board board(2,1);
 	AssertEqInt(haveTouchedEverySquare(board), 0);
 	Position p(0,0);
-	board.setEntry(p);
+	Knight knight1(board, 0,0);
+	board.setPiece(&knight1);
 	AssertEqInt(haveTouchedEverySquare(board), 0);
-	p.x = 1;
-	board.setEntry(p);
+	Knight knight2(board, 1,0);
+	board.setPiece(&knight1);
 	AssertEqInt(haveTouchedEverySquare(board), 1);
 	return 0;
 }
